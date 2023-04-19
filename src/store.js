@@ -4,8 +4,12 @@ import axios from 'axios'
 export const store = reactive({
     loading: true,
     urlBase: 'https://api.themoviedb.org/3/search/movie?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT&page=1&include_adult=false',
-    filmSearch: '',
+    UrlBaseTv: 'https://api.themoviedb.org/3/search/tv?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT',
+    userSearch: '',
     filmsFound: [],
+    tvSearch: '',
+    tvsFound: [],
+
     Flags: [
         {
             state: 'it',
@@ -31,14 +35,18 @@ export const store = reactive({
             state: 'es',
             img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg'
         },
+        {
+            state: 'zh',
+            img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/CH.svg'
+        },
 
     ],
     // array degli stati con indice stato e relativa immagine.
 
 
     generateFilms() {
-        if (store.searchFilm != '') {
-            let url = `${store.urlBase}&query=${store.filmSearch}`
+        if (store.userSearch != '') {
+            let url = `${store.urlBase}&query=${store.userSearch}`
             console.log(url);
             this.filmsFound = []
             axios.get(url)
@@ -46,6 +54,19 @@ export const store = reactive({
                     console.log(response);
                     console.log(response.data.results);
                     this.filmsFound = response.data.results
+                })
+        }
+    },
+    generateTv() {
+        if (store.userSearch != '') {
+            let url = `${store.UrlBaseTv}&query=${store.userSearch}`
+            console.log(url);
+            this.tvsFound = []
+            axios.get(url)
+                .then(response => {
+                    console.log(response);
+                    console.log(response.data.results);
+                    this.tvsFound = response.data.results
                 })
         }
     }
