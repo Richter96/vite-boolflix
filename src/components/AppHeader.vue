@@ -1,5 +1,6 @@
 
 <script>
+
 import { store } from '../store'
 
 export default {
@@ -19,6 +20,6 @@ export default {
     <div>
         <h1 class=" text-uppercase">Boolflix</h1>
         <input type="text" placeholder="Cerca un film" v-model="store.filmSearch">
-        <button @click="store.getUrlFilm(store.urlBase)">Search</button>
+        <button @click="store.generateFilms()">Search</button>
     </div>
 </template>
