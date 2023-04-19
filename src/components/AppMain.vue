@@ -8,7 +8,7 @@ export default {
     data() {
         return {
             store,
-            urlImg: ''
+            urlImg: ""
 
         }
     },
@@ -16,15 +16,13 @@ export default {
         generateUrlImg(state) {
             store.Flags.forEach((flag) => {
                 if (flag.state === state) {
-                    this.urlImg = flag.img
-                    console.log(this.urlImg);
-
+                    console.log(flag.img);
                 }
             });
 
         }
     },
-    computed() {
+    mounted() {
         this.generateUrlImg(store.filmsFound.original_language)
     },
 
@@ -34,7 +32,7 @@ export default {
 
 <template>
     <div>
-        <div class="container_films" v-if="store.filmsFound != ''">
+        <div class="container_films" v-if="store.filmsFound.length > 0">
             <h3>Movies</h3>
             <div class="Card_film d-flex row row-cols-5">
                 <div class="col border border-2" v-if="store.filmsFound != ''" v-for="film in store.filmsFound">
@@ -48,7 +46,7 @@ export default {
                 </div>
             </div>
         </div>
-        <div class="container_tv" v-if="store.filmsFound != ''">
+        <div class="container_tv" v-if="store.tvsFound.length > 0">
             <h3>Tv Series</h3>
             <div class="Card_film d-flex row row-cols-5">
                 <div class="col border border-2" v-for="tvSeries in store.tvsFound">
