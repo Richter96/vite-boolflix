@@ -20,13 +20,11 @@ export default {
 <template>
   <h1 class=" text">Boolflix</h1>
 
-  <template>
-    <SiteHeader></SiteHeader>
-    <SiteMain></SiteMain>
-    <SiteFooter></SiteFooter>
-  </template>
+  <AppHeader></AppHeader>
+  <AppMain></AppMain>
+  <AppFooter></AppFooter>
 </template>
 
 <style lang="scss">
-@use '../assets/scss/partials/variables' as *;
+@use '../src/assets/scss/partials/variables' as *;
 </style>
