@@ -1,10 +1,14 @@
 <script>
+import { store } from '../store'
 export default {
     name: 'AppMain',
     data() {
         return {
-
+            store
         }
+    },
+    mounted() {
+
     },
 }
 </script>
@@ -12,6 +16,8 @@ export default {
 
 <template>
     <div>
-        <p>Main</p>
+        <div class="Card_film">
+            <p></p>
+        </div>
     </div>
 </template>
