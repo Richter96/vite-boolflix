@@ -18,8 +18,6 @@ export default {
 </script>
 
 <template>
-  <h1 class=" text">Boolflix</h1>
-
   <AppHeader></AppHeader>
   <AppMain></AppMain>
   <AppFooter></AppFooter>
