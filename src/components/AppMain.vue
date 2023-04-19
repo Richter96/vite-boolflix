@@ -20,7 +20,7 @@ export default {
             <div class="col border border-2" v-if="store.filmsFound != ''" v-for="film in store.filmsFound">
                 <p>Titolo: {{ film.title }}</p>
                 <p>Titolo originale: {{ film.original_title }}</p>
-                <p>Lingua: {{ film.original_language }}</p>
+                <p class="d-inline">Lingua: {{ film.original_language }}</p><img width="20" :src="store.urlFlag" alt="">
                 <p>Voto: {{ film.vote_average }}</p>
             </div>
         </div>
