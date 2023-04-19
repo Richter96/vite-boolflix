@@ -39,7 +39,9 @@ export default {
                 <p>Titolo: {{ film.title }}</p>
                 <p>Titolo originale: {{ film.original_title }}</p>
                 <p class="d-inline">Lingua: {{ film.original_language }}</p>
-                <img width="20" height="40" @change=generateUrlImg(film.original_language) :src="urlImg" alt="">
+                <div class="d-inline" v-for="flag in store.Flags">
+                    <img width="20" height="40" v-if="flag.state === film.original_language" :src="flag.img" alt="">
+                </div>
                 <p>Voto: {{ film.vote_average }}</p>
             </div>
         </div>

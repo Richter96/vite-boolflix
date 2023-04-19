@@ -27,6 +27,11 @@ export const store = reactive({
             state: 'no',
             img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/NO.svg'
         },
+        {
+            state: 'es',
+            img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg'
+        },
+
     ],
     // array degli stati con indice stato e relativa immagine.
 
