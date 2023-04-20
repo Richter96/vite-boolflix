@@ -5,6 +5,8 @@ export const store = reactive({
     loading: true,
     urlBase: 'https://api.themoviedb.org/3/search/movie?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT&page=1&include_adult=false',
     UrlBaseTv: 'https://api.themoviedb.org/3/search/tv?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT',
+
+    urlImageBase: 'https://image.tmdb.org/t/p/',
     userSearch: '',
     filmsFound: [],
     tvSearch: '',
