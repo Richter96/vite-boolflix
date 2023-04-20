@@ -113,18 +113,9 @@ export const store = reactive({
                     console.log(response.data.results);
                     this.tvsFound = response.data.results
                 })
-        }
 
+        }
     },
 
-    generateStar() {
-        for (let i = 0; i < store.tvsFound.length; i++) {
-            const tvSerie = store.tvsFound[i];
-            newVote = Number(Math.round(tvSerie.vote_average / 2));
-
-            tvSerie.vote_average = newVote
-            console.log(tvSerie.vote_average);
-        }
-    }
 })
 

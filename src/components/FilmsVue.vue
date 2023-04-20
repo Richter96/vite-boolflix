@@ -9,6 +9,17 @@ export default {
             store
         }
     },
+    methods: {
+        generateStar(numb) {
+
+            let newValue = Number(Math.round(numb / 2))
+            console.log(newValue);
+        }
+
+    },
+    mounted() {
+        this.generateStar(4)
+    },
 }
 
 </script>
