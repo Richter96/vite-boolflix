@@ -9,6 +9,7 @@ export const store = reactive({
     filmsFound: [],
     tvSearch: '',
     tvsFound: [],
+    error: null,
 
     Flags: [
         {
@@ -49,11 +50,16 @@ export const store = reactive({
             let url = `${store.urlBase}&query=${store.userSearch}`
             console.log(url);
             this.filmsFound = []
-            axios.get(url)
+            axios
+                .get(url)
                 .then(response => {
                     console.log(response);
                     console.log(response.data.results);
                     this.filmsFound = response.data.results
+                    this.loading = false
+                }).catch(error => {
+                    console.log(error.message);
+                    this.error = error.message
                 })
         }
     },
@@ -62,7 +68,8 @@ export const store = reactive({
             let url = `${store.UrlBaseTv}&query=${store.userSearch}`
             console.log(url);
             this.tvsFound = []
-            axios.get(url)
+            axios
+                .get(url)
                 .then(response => {
                     console.log(response);
                     console.log(response.data.results);

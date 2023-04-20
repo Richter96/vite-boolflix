@@ -46,6 +46,8 @@ export default {
                 </div>
             </div>
         </div>
+
+
         <div class="container_tv" v-if="store.tvsFound.length > 0">
             <h3>Tv Series</h3>
             <div class="Card_film d-flex row row-cols-5">
