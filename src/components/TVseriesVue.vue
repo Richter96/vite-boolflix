@@ -19,6 +19,8 @@ export default {
         <h3>Tv Series</h3>
         <div class="Card_film d-flex row row-cols-5">
             <div class="col border border-2" v-for="tvSeries in store.tvsFound">
+                <img :src="`${store.urlImageBase}${store.poster_sizes[3]}/${tvSeries.poster_path}`"
+                     :alt="`Image of: ${tvSeries.name}`">
                 <p>Titolo: {{ tvSeries.name }}</p>
                 <p>Titolo originale: {{ tvSeries.original_name }}</p>
                 <p class="d-inline">Lingua: {{ tvSeries.original_language }}</p>
