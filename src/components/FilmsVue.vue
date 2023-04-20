@@ -19,6 +19,8 @@ export default {
         <h3>Movies</h3>
         <div class="Card_film d-flex row row-cols-5">
             <div class="col border border-2" v-if="store.filmsFound != ''" v-for="film in store.filmsFound">
+                <img :src="`${store.urlImageBase}${store.poster_sizes[3]}/${film.poster_path}`"
+                     :alt="`Image of: ${film.title}`">
                 <p>Titolo: {{ film.title }}</p>
                 <p>Titolo originale: {{ film.original_title }}</p>
                 <p class="d-inline">Lingua: {{ film.original_language }}</p>
