@@ -20,6 +20,6 @@ export default {
         <h1 class=" text-uppercase">Boolflix</h1>
         <img :src="`${store.urlImageBase}${store.logo_sizes[4]}/wwemzKWzjKYJFfCeiB57q3r4Bcm.png`" alt="">
         <input type="text" placeholder="Cerca un film" v-model="store.userSearch">
-        <button @click="store.generateFilms() & store.generateTv()">Search</button>
+        <button @click="store.generateFilms() & store.generateTv() & store.generateStar()">Search</button>
     </div>
 </template>
