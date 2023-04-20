@@ -10,15 +10,9 @@ export default {
         }
     },
     methods: {
-        generateStar(numb) {
-
-            let newValue = Number(Math.round(numb / 2))
-            console.log(newValue);
-        }
 
     },
     mounted() {
-        this.generateStar(4)
     },
 }
 
@@ -34,13 +28,18 @@ export default {
                      :src="`${store.urlImageBase}${store.poster_sizes[3]}/${film.poster_path}`"
                      :alt="`Image of: ${film.title}`">
                 <img v-else width="340" src="https://media.giphy.com/media/xFpT7lMV5Mkqq0E6YM/giphy.gif" alt="">
-                <p>Titolo: {{ film.title }}</p>
-                <p>Titolo originale: {{ film.original_title }}</p>
-                <p class="d-inline">Lingua: {{ film.original_language }}</p>
-                <div class="d-inline" v-for="flag in store.Flags">
-                    <img width="20" height="40" v-if="flag.state === film.original_language" :src="flag.img" alt="">
+                <div class=" card-body">
+                    <p>Titolo: {{ film.title }}</p>
+                    <p>Titolo originale: {{ film.original_title }}</p>
+                    <span class="">Lingua: {{ film.original_language }}</span>
+
+                    <div class="d-inline" v-for="flag in store.Flags">
+                        <img width="20" height="40" v-if="flag.state === film.original_language" :src="flag.img" alt="">
+                    </div>
+                    <div>
+                        <span class=" d-block" v-for="i in store.generateStar(film.vote_average)">⭐️</span>
+                    </div>
                 </div>
-                <p>Voto: {{ film.vote_average }}</p>
             </div>
         </div>
     </div>
