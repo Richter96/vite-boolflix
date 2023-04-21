@@ -12,12 +12,6 @@ export const store = reactive({
     tvSearch: '',
     tvsFound: [],
     error: null,
-    backdrop_sizes: [
-        "w300",
-        "w780",
-        "w1280",
-        "original"
-    ],
     logo_sizes: [
         "w45",
         "w92",
@@ -34,18 +28,6 @@ export const store = reactive({
         "w342",
         "w500",
         "w780",
-        "original"
-    ],
-    profile_sizes: [
-        "w45",
-        "w185",
-        "h632",
-        "original"
-    ],
-    still_sizes: [
-        "w92",
-        "w185",
-        "w300",
         "original"
     ],
     flags: [

@@ -31,7 +31,6 @@ export default {
                     <div class="card-body position-absolute text-white">
                         <p>Titolo: {{ tvSeries.name }}</p>
                         <p>Titolo originale: {{ tvSeries.original_name }}</p>
-                        <p class="d-inline">Lingua: {{ tvSeries.original_language }}</p>
 
                         <!-- language -->
                         <div class="language" v-if="store.searchFlag(tvSeries.original_language)">
