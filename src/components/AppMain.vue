@@ -13,30 +13,15 @@ export default {
     data() {
         return {
             store,
-            // urlImg: ""
-
         }
     },
-    /*  methods: {
-         generateUrlImg(state) {
-             store.Flags.forEach((flag) => {
-                 if (flag.state === state) {
-                     console.log(flag.img);
-                 }
-             });
- 
-         }
-     },
-     mounted() {
-         this.generateUrlImg(store.filmsFound.original_language)
-     }, */
 
 }
 </script>
 
 
 <template>
-    <div class=" container-lg">
+    <div class=" container-xxl">
         <FilmsVue />
         <TVseriesVue />
     </div>

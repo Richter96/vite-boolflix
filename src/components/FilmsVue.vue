@@ -1,18 +1,17 @@
 <script>
 
 import { store } from "../store";
+import ImageCard from "./ImageCard.vue"
 
 export default {
     name: 'FilmsVue',
+    components: {
+        ImageCard
+    },
     data() {
         return {
             store
         }
-    },
-    methods: {
-
-    },
-    mounted() {
     },
 }
 
@@ -21,39 +20,43 @@ export default {
 
 <template>
     <div class="container_films" v-if="store.filmsFound.length > 0">
-        <h3>Movies</h3>
-        <div class=" d-flex row row-cols-5 gap-3">
-            <div class="Card_film col border border-2" v-if="store.filmsFound != ''" v-for="film in store.filmsFound">
-                <div class="img_card">
-                    <img v-if="film.poster_path != null"
-                         :src="`${store.urlImageBase}${store.poster_sizes[3]}/${film.poster_path}`"
-                         :alt="`Image of: ${film.title}`" class=" img-fluid">
-                    <img v-else width="342" src="https://loremflickr.com/342/513" alt="" class=" img-fluid">
-                </div>
+        <h3 class="text-white">Movies</h3>
+        <div class="d-flex row row-cols-5 ">
+            <div class="col py-2" v-if="store.filmsFound != ''" v-for="film in store.filmsFound">
+                <div class="Card_film overflow-scroll">
+                    <!-- img card -->
+                    <ImageCard :img="film.poster_path" :urlBase="store.urlImageBase" :title="film.title" />
 
-                <!-- section body card -->
-                <div class=" card-body position-absolute bg-black text-white">
-                    <p>Titolo: {{ film.title }}</p>
-                    <p>Titolo originale: {{ film.original_title }}</p>
+                    <!-- section body card -->
+                    <div class="card-body position-absolute text-white">
+                        <p>Titolo: {{ film.title }}</p>
+                        <p>Titolo originale: {{ film.original_title }}</p>
 
-                    <!-- section lenguage -->
-                    <div class="language" v-if="store.searchFlag(film.original_language)">
-                        <img width="20" height="40"
-                             :src="`http://purecatamphetamine.github.io/country-flag-icons/3x2/${film.original_language.toUpperCase()}.svg`"
-                             alt="">
-                        <span>{{ film.original_language }}</span>
-                    </div>
-                    <div v-else>
-                        <span>Lingua non disponibile</span>
-                    </div>
-                    <!-- section vote -->
-                    <div class="vote position-relative">
-                        <div class="star_gold position-absolute">
-                            <img width="30" v-for="i in store.generateStar(film.vote_average)"
-                                 src="../assets/img/starGold.png">
+                        <!-- section lenguage -->
+                        <div class="language" v-if="store.searchFlag(film.original_language)">
+                            <img width="20" height="40"
+                                 :src="`http://purecatamphetamine.github.io/country-flag-icons/3x2/${film.original_language.toUpperCase()}.svg`"
+                                 alt="">
+                            <span>{{ film.original_language }}</span>
                         </div>
-                        <div class="star_gray position-absolute">
-                            <img width="30" v-for="i in 5" src="../assets/img/starGold.png">
+                        <div v-else>
+                            <span>
+                                <strong>Lingua:</strong>
+                                {{ film.original_language }}</span>
+                        </div>
+                        <!-- section vote -->
+                        <div class="vote position-relative">
+                            <div class="star_gold position-absolute">
+                                <img width="30" v-for="i in store.generateStar(film.vote_average)"
+                                     src="../assets/img/starGold.png">
+                            </div>
+                            <div class="star_gray position-absolute">
+                                <img width="30" v-for="i in 5" src="../assets/img/starGold.png">
+                            </div>
+                        </div>
+                        <!-- description film -->
+                        <div class="desc_film">
+                            <p>{{ film.overview }}</p>
                         </div>
                     </div>
                 </div>
@@ -63,34 +66,68 @@ export default {
 </template>
 
 <style lang="scss">
-.Card_film {
-    position: relative;
+.container_films {
+    margin-bottom: 3rem;
 
-    .img_card {
-        height: 100% !important;
+    h3 {
+        border-bottom: 0.2rem solid white;
+    }
 
-        img {
-            object-fit: cover;
+    .Card_film {
+        box-shadow: 0px 0px 41px 3px #838383;
+        position: relative;
+        padding: 0;
+        height: 100%;
+
+        .img_card {
             height: 100% !important;
+
+            img {
+                object-fit: cover;
+                height: 100% !important;
+            }
         }
     }
-}
 
-.card-body {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    .card-body {
+        background-color: rgba(0, 0, 0, 0.744);
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
 
-    .star_gold {
-        z-index: 1;
+        .star_gold {
+            z-index: 1;
+        }
+
+        p {
+            margin-bottom: 0.3rem;
+        }
+
+        .star_gray {
+            opacity: 50%;
+
+            img {
+                filter: grayscale(1);
+            }
+        }
+
+        .desc_film {
+            height: 50%;
+            overflow: scroll;
+            font-size: 0.8rem;
+        }
+
+        .vote {
+            height: 40px;
+        }
     }
 
-    .star_gray {
-        opacity: 50%;
-        filter: grayscale(1);
+    .Card_film:hover .card-body {
+
+        display: block;
     }
 }
 </style>
