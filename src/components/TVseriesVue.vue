@@ -30,12 +30,14 @@ export default {
                     <!-- section body card -->
                     <div class="card-body position-absolute text-white">
                         <p>Titolo: {{ tvSeries.name }}</p>
-                        <p class=" fs-1">Titolo originale: {{ tvSeries.original_name }}</p>
+                        <p>Titolo originale: {{ tvSeries.original_name }}</p>
                         <p class="d-inline">Lingua: {{ tvSeries.original_language }}</p>
 
                         <!-- language -->
                         <div class="language" v-if="store.searchFlag(tvSeries.original_language)">
-                            <img width="20" height="40" src="../assets/img/flags/ch.svg" alt="">
+                            <img width="20" height="40"
+                                 :src="`http://purecatamphetamine.github.io/country-flag-icons/3x2/${tvSeries.original_language.toUpperCase()}.svg`"
+                                 alt="">
                             <span>{{ tvSeries.original_language }}</span>
                         </div>
                         <div v-else>
@@ -101,6 +103,10 @@ export default {
                 z-index: 1;
             }
 
+            p {
+                margin-bottom: 0.3rem;
+            }
+
             .star_gray {
                 opacity: 50%;
 
@@ -119,10 +125,11 @@ export default {
             }
         }
 
-        .card_serie:hover .card-body {
+    }
 
-            display: block;
-        }
+    .card_serie:hover .card-body {
+
+        display: block;
     }
 }
 </style>
