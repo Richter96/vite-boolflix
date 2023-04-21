@@ -36,7 +36,7 @@ export default {
 
 
 <template>
-    <div>
+    <div class=" container-lg">
         <FilmsVue />
         <TVseriesVue />
     </div>
