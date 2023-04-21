@@ -31,8 +31,14 @@ export default {
                 <div class="d-inline" v-for="flag in store.flags">
                     <img width="20" height="40" v-if="flag.state === tvSeries.original_language" :src="flag.img" alt="">
                 </div>
-                <div>
-                    <span class="" v-for="i in store.generateStar(tvSeries.vote_average)">⭐️</span>
+                <!-- section vote -->
+                <div class="vote position-relative">
+                    <div class="star_gold position-absolute">
+                        <img width="30" v-for="i in store.generateStar(film.vote_average)" src="../assets/img/starGold.png">
+                    </div>
+                    <div class="star_gray position-absolute">
+                        <img width="30" v-for="i in 5" src="../assets/img/starGold.png">
+                    </div>
                 </div>
 
 
