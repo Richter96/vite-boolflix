@@ -6,7 +6,7 @@ export const store = reactive({
     urlBase: 'https://api.themoviedb.org/3/search/movie?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT&page=1&include_adult=false',
     UrlBaseTv: 'https://api.themoviedb.org/3/search/tv?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT',
     urlImageBase: 'https://image.tmdb.org/t/p/',
-    urlFlag: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/',
+    urlFlag: '',
     userSearch: '',
     filmsFound: [],
     tvSearch: '',
@@ -69,6 +69,9 @@ export const store = reactive({
         {
             state: 'es',
             img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/ES.svg'
+        },
+        {
+            state: 'zh',
         },
 
     ],
