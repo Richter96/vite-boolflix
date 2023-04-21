@@ -31,10 +31,15 @@ export default {
                 <div class=" card-body">
                     <p>Titolo: {{ film.title }}</p>
                     <p>Titolo originale: {{ film.original_title }}</p>
-                    <span class="">Lingua: {{ film.original_language }}</span>
 
-                    <div class="d-inline" v-for="flag in store.Flags">
-                        <img width="20" height="40" v-if="flag.state === film.original_language" :src="flag.img" alt="">
+                    <div v-if="store.searchFlag(film.original_language)">
+                        <img width="20" height="40"
+                             :src="`http://purecatamphetamine.github.io/country-flag-icons/3x2/${film.original_language.toUpperCase()}.svg`"
+                             alt="">
+                        <span>{{ film.original_language }}</span>
+                    </div>
+                    <div v-else>
+                        <span>Lingua non disponibile</span>
                     </div>
                     <div>
                         <span class=" d-block" v-for="i in store.generateStar(film.vote_average)">⭐️</span>

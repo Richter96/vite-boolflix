@@ -6,6 +6,7 @@ export const store = reactive({
     urlBase: 'https://api.themoviedb.org/3/search/movie?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT&page=1&include_adult=false',
     UrlBaseTv: 'https://api.themoviedb.org/3/search/tv?api_key=40023d6ed7324bb3b6c6dc2c3734a8a5&language=it-IT',
     urlImageBase: 'https://image.tmdb.org/t/p/',
+    urlFlag: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/',
     userSearch: '',
     filmsFound: [],
     tvSearch: '',
@@ -47,15 +48,12 @@ export const store = reactive({
         "w300",
         "original"
     ],
-    Flags: [
+    flags: [
         {
             state: 'it',
             img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/IT.svg'
         },
-        {
-            state: 'en',
-            img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/US.svg'
-        },
+
         {
             state: 'fr',
             img: 'http://purecatamphetamine.github.io/country-flag-icons/3x2/FR.svg'
@@ -93,6 +91,7 @@ export const store = reactive({
                     console.log(response.data.results);
                     this.filmsFound = response.data.results
                     this.loading = false
+
                 }).catch(error => {
                     console.log(error.message);
                     this.error = error.message
@@ -115,13 +114,17 @@ export const store = reactive({
 
         }
     },
-
-
     generateStar(numb) {
 
         let newValue = Number(Math.round(numb / 2))
         console.log(newValue);
         return newValue;
-    }
+    },
+    searchFlag(lingua) {
+        const isLangAvailable = this.flags.some(flag => lingua.toLowerCase() == flag.state)
+        return isLangAvailable;
+
+    },
+
 })
 

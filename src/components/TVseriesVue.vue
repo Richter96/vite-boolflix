@@ -28,7 +28,7 @@ export default {
                 <p>Titolo originale: {{ tvSeries.original_name }}</p>
                 <p class="d-inline">Lingua: {{ tvSeries.original_language }}</p>
 
-                <div class="d-inline" v-for="flag in store.Flags">
+                <div class="d-inline" v-for="flag in store.flags">
                     <img width="20" height="40" v-if="flag.state === tvSeries.original_language" :src="flag.img" alt="">
                 </div>
                 <div>
