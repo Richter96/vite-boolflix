@@ -29,8 +29,8 @@ export default {
 
                     <!-- section body card -->
                     <div class="card-body position-absolute text-white">
-                        <p>Titolo: {{ film.title }}</p>
-                        <p>Titolo originale: {{ film.original_title }}</p>
+                        <p><strong>Titolo:</strong> {{ film.title }}</p>
+                        <p><strong>Titolo originale:</strong> {{ film.original_title }}</p>
 
                         <!-- section lenguage -->
                         <div class="language" v-if="store.searchFlag(film.original_language)">
@@ -118,6 +118,10 @@ export default {
             height: 50%;
             overflow: scroll;
             font-size: 0.8rem;
+
+            p {
+                font-size: 0.8rem;
+            }
         }
 
         .vote {

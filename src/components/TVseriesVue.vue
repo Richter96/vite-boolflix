@@ -29,8 +29,8 @@ export default {
                     <ImageCard :img="tvSeries.poster_path" :urlBase="store.urlImageBase" :title="tvSeries.name" />
                     <!-- section body card -->
                     <div class="card-body position-absolute text-white">
-                        <p>Titolo: {{ tvSeries.name }}</p>
-                        <p>Titolo originale: {{ tvSeries.original_name }}</p>
+                        <p><strong>Titolo:</strong> {{ tvSeries.name }}</p>
+                        <p><strong>Titolo originale:</strong> {{ tvSeries.original_name }}</p>
 
                         <!-- language -->
                         <div class="language" v-if="store.searchFlag(tvSeries.original_language)">
@@ -117,6 +117,10 @@ export default {
             .desc_serie {
                 height: 50%;
                 overflow: scroll;
+
+                p {
+                    font-size: 0.8rem;
+                }
             }
 
             .vote {
