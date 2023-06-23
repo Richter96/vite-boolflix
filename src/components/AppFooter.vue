@@ -11,7 +11,7 @@ export default {
 
 
 <template>
-    <div>
-        <p>Copyright Riccardo Castiglione</p>
+    <div class="text-white">
+        <p class="copy">Copyright © Boolean 2023 / Riccardo Castiglione</p>
     </div>
 </template>
