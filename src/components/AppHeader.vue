@@ -23,11 +23,11 @@ export default {
 
 
 <template>
-    <div>
-        <div class="container_header mx-2 my-3 d-flex justify-content-between align-items-center">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="row row-cols-1 row-cols-md-2 container_header mx-2 my-3 d-flex justify-content-evenly  align-items-center">
+        <div class="col">
+            <nav class=" navbar navbar-expand-lg navbar-dark bg-black">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand " href="#">
                         <img :src="`${store.urlImageBase}${store.logo_sizes[4]}/wwemzKWzjKYJFfCeiB57q3r4Bcm.png`" alt="">
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNav">
@@ -44,10 +44,10 @@ export default {
                     </div>
                 </div>
             </nav>
-            <div>
-                <input type="text" placeholder="Cerca un film" v-model="store.userSearch">
-                <button @click="store.generateFilms() & store.generateTv()">Search</button>
-            </div>
+        </div>
+        <div class="col d-flex">
+            <input class=" w-75" type="text" placeholder="Cerca un film" v-model="store.userSearch">
+            <button class="btn btn-dark" @click="store.generateFilms() & store.generateTv()">Search</button>
         </div>
     </div>
 </template>
