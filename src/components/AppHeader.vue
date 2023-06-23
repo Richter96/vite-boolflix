@@ -7,7 +7,14 @@ export default {
     name: 'AppHeader',
     data() {
         return {
-            store
+            store,
+            links: [
+                'Home',
+                'Films',
+                'Series',
+                'My list',
+
+            ]
         }
 
     },
@@ -25,17 +32,13 @@ export default {
                     </a>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Films</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Series</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">My list</a>
+                            <li class="nav-item" v-for="(link, i) in links">
+                                <a class="nav-link text-uppercase" :class="i == 0 ? 'active' : ''" aria-current="page"
+                                   href="#">
+                                    <strong>
+                                        {{ link }}
+                                    </strong>
+                                </a>
                             </li>
                         </ul>
                     </div>
